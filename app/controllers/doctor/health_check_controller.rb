@@ -1,7 +1,8 @@
 module Doctor
   class HealthCheckController < ApplicationController
     def index
-      render json: '{status: "ok2"}'
+      result = HealthCheck.new.perform
+      render json: result, head: :ok
     end
   end
 end

@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'doctor/status', to: 'doctor/health_check#index'
+  get 'doctor/health_check', to: 'doctor/health_check#index'
 end
