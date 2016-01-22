@@ -1,4 +1,4 @@
-# Doctor  <img src="http://img03.deviantart.net/be88/i/2012/322/9/f/10th_doctor_who_by_mibu_no_ookami-d4xbcxy.png " width="150">
+# Doctor  <img src="https://scottjen.files.wordpress.com/2012/05/houseblackss.png" width="150">
 
 This gem will allow you to check the status of all your external dependencies, e.g. url, database, etc
 

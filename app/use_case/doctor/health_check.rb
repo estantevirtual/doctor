@@ -6,7 +6,7 @@ module Doctor
       result[:telnets] = analyze_telnet
       result[:databases] = analyze_database
 
-      result
+      OpenStruct.new(result: result, has_error?: has_error?(result))
     end
 
     private
@@ -28,6 +28,18 @@ module Doctor
       end
 
       dto_result
+    end
+
+    def has_error?(result_hash)
+      result_hash.values.each do |result_analyze|
+        result_analyze.each do |result|
+          if !result.status.eql?('ok')
+            return true
+          end
+        end
+      end
+
+      false
     end
   end
 end

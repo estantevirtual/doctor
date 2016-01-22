@@ -6,11 +6,11 @@ require 'doctor/version'
 Gem::Specification.new do |spec|
   spec.name          = "doctor"
   spec.version       = Doctor::VERSION
-  spec.authors       = ["Write your name"]
-  spec.email         = ["Write your email address"]
+  spec.authors       = ["uaiHebert"]
+  spec.email         = ["holiveira@estantevirtual.com.br"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{ a longer description or delete this line.}
+  spec.summary       = %q{This project will analyse the databases, urls, etc statuses}
+  spec.description   = %q{With this project you will able to analyse your external resources status. You will be able to configure wich database connection to check or all the http urls}
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

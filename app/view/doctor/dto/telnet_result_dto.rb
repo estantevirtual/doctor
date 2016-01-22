@@ -1,6 +1,8 @@
 module Doctor
   module Dto
     class TelnetResultDto
+      attr_reader :status
+
       def initialize(data)
         @name = data[:name]
         @host = data[:host]
