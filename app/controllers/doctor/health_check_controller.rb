@@ -1,5 +1,5 @@
 module Doctor
-  class HealthCheckController < ApplicationController
+  class HealthCheckController < ActionController::Base
     def index
       check_result = HealthCheck.new.perform
 
