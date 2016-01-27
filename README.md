@@ -2,6 +2,8 @@
 
 This gem will allow you to check the status of all your external dependencies, e.g. url, database, etc
 
+[![Build Status](https://travis-ci.org/magnocosta/doctor.svg?branch=master)](https://travis-ci.org/magnocosta/doctor)
+
 ## Installation
 
 Add this line to your application's Gemfile:
