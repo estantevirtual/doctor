@@ -30,7 +30,7 @@ RSpec.describe Doctor::DatabaseAnalyser do
         expect(subject.first.status).to eq("ok")
       end
 
-      it "Does return a object with active_record attribute value 'dog'" do
+      it "Does return a object with active_record attribute" do
         expect(subject.first.active_record).to eq(Dog.name.to_s)
       end
 
@@ -49,7 +49,7 @@ RSpec.describe Doctor::DatabaseAnalyser do
         expect(subject.first.status).to eq("error")
       end
 
-      it "Does return a object with error_message attribute value 'i_have_failed'" do
+      it "Does return a object with error_message attribute value 'cause_by_message'" do
         expect(subject.first.status).to eq("error")
       end
     end
