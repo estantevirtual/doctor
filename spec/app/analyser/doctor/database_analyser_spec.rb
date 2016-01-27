@@ -20,7 +20,7 @@ RSpec.describe Doctor::DatabaseAnalyser do
       Doctor::ConfigManager.active_record_list.clear
     end
 
-    context "Process with success" do
+    context "When process with success" do
 
       before do
         expect(Dog).to receive(:first).and_return(Dog.new)
@@ -39,7 +39,7 @@ RSpec.describe Doctor::DatabaseAnalyser do
       end
     end
 
-    context "Process with failed" do
+    context "When process with failed" do
 
       before do
         expect(Dog).to receive(:first).and_raise("i_have_failed")
