@@ -10,4 +10,4 @@ notifications:
 script: bundle exec rspec spec
 addons:
   code_climate:
-    repo_token: 52de546a118b2899a76938abe97071cd2a9922f16a06c8bf64778250cbcb76ee
+    repo_token: "52de546a118b2899a76938abe97071cd2a9922f16a06c8bf64778250cbcb76ee"
