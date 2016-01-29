@@ -9,4 +9,4 @@
 /tmp/
 /log/
 .DS_Store
-
+/spec/dummy/db/
