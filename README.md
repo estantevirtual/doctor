@@ -2,10 +2,10 @@
 
 This gem will allow you to check the status of all your external dependencies, e.g. url, database, etc
 
-[![Build Status](https://travis-ci.org/magnocosta/doctor.svg?branch=master)](https://travis-ci.org/magnocosta/doctor)
-[![Code Climate](https://codeclimate.com/github/magnocosta/doctor/badges/gpa.svg)](https://codeclimate.com/github/magnocosta/doctor)
-[![Test Coverage](https://codeclimate.com/github/magnocosta/doctor/badges/coverage.svg)](https://codeclimate.com/github/magnocosta/doctor/coverage)
-[![Issue Count](https://codeclimate.com/github/magnocosta/doctor/badges/issue_count.svg)](https://codeclimate.com/github/magnocosta/doctor)
+[![Build Status](https://travis-ci.org/estantevirtual/doctor.svg?branch=master)](https://travis-ci.org/estantevirtual/doctor)
+[![Code Climate](https://codeclimate.com/github/estantevirtual/doctor/badges/gpa.svg)](https://codeclimate.com/github/estantevirtual/doctor)
+[![Test Coverage](https://codeclimate.com/github/estantevirtual/doctor/badges/coverage.svg)](https://codeclimate.com/github/estantevirtual/doctor/coverage)
+[![Issue Count](https://codeclimate.com/github/estantevirtual/doctor/badges/issue_count.svg)](https://codeclimate.com/github/estantevirtual/doctor)
 
 ## Installation
 
@@ -42,9 +42,9 @@ To see the health check status, access the following URL: http://YOUR_PROJECT/do
 
 A JSON like this will appear:
 ```json
-{  
-   "telnets":[  
-       {  
+{
+   "telnets":[
+       {
          "name":"uaiHebert",
          "host":"uaihebert.com",
          "port":80,
@@ -52,7 +52,7 @@ A JSON like this will appear:
          "wait_time":1,
          "status":"ok"
       },
-      {  
+      {
          "name":"Paypal",
          "host":"api.paypal.com",
          "port":443,
@@ -61,12 +61,12 @@ A JSON like this will appear:
          "status":"ok"
       }
    ],
-   "databases":[  
-      {  
+   "databases":[
+      {
          "status":"ok",
          "active_record":"DogActiveRecord"
       },
-      {  
+      {
          "status":"error",
          "active_record":"Legacy::CatAnotherDatabase",
          "error_message":"Can't connect to MySQL server on '127.0.0.1' (111)"
@@ -78,7 +78,7 @@ About the json:
 * every time that an error is deteced, the returned http status will be 500
 * In case of error ```"status" : "error"``` you will find the attribute ```"error_message":"error text..."``` with the error text
 * Notice that with the telnet url some default values were added. You can override them in your ```doctor.rb``` class, e.g. : ```{name: 'uaiHebert', host: 'uaihebert.com', timeout: 2}```
- 
+
 
 ## Development
 

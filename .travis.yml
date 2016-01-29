@@ -6,7 +6,8 @@ rvm:
 notifications:
   email:
     on_success: change
-    on_failure: always    
+    on_failure: always
 script: bundle exec rspec spec
 addons:
   code_climate:
+  repo_token: 45982622ee9eb055ae69b5fcce480420b9ed8f4ffd9c7a0ca5dc92ae50721093
