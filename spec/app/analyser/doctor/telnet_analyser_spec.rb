@@ -9,20 +9,20 @@ RSpec.describe Doctor::TelnetAnalyser do
   describe "#analyse" do
 
     context "When process with sucess" do
-      
+
       before do
         expect(Net::Telnet).to receive(:new).with(
           "Host"     => "uaihebert.com",
           "Port"     => 80,
           "Timeout"  => 1,
-          "Waittime" => 1 
+          "Waittime" => 1
         )
 
         expect(Net::Telnet).to receive(:new).with(
           "Host"     => "api.paypal.com",
           "Port"     => 443,
           "Timeout"  => 10,
-          "Waittime" => 20 
+          "Waittime" => 20
         )
         Doctor::ConfigManager.url_to_telnet_list.concat [
           {name: 'uaiHebert', host: 'uaihebert.com'},
@@ -57,9 +57,9 @@ RSpec.describe Doctor::TelnetAnalyser do
     end
 
     context "When process with failed" do
-      
-      before do 
-        expect(Net::Telnet).to receive(:new).and_raise("i_have_failed") 
+
+      before do
+        expect(Net::Telnet).to receive(:new).and_raise("i_have_failed")
         Doctor::ConfigManager.url_to_telnet_list.concat [
           {name: 'Paypal',host: 'api.paypal.com', port: 443, timeout: 10, wait_time: 20}]
       end
