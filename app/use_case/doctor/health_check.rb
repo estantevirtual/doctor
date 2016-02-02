@@ -5,6 +5,7 @@ module Doctor
 
       result[:telnets] = analyze_telnet
       result[:databases] = analyze_database
+      result[:hds] = analyse_hds
 
       OpenStruct.new(result: result, has_error?: has_error?(result))
     end
@@ -16,6 +17,10 @@ module Doctor
 
     def analyze_database
      process(DatabaseAnalyser, Dto::DatabaseResultDto)
+    end
+
+    def analyse_hds
+      process(HdAnalyser, Dto::HdResultDto)
     end
 
     def process(analyzer_class, dto_class)

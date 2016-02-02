@@ -36,6 +36,11 @@ Doctor::ConfigManager.url_to_telnet_list.concat [
   {name: 'uaiHebert', host: 'uaihebert.com'},
   {name: 'Paypal', host: 'api.paypal.com', port: 443}
 ]
+
+# HD that will be checked
+Doctor::ConfigManager.directory_list.concat [
+  {name: 'uaiHd' , path: '/uaiDrive', alarm_if_less_than: 40}
+]
 ```
 
 To see the health check status, access the following URL: http://YOUR_PROJECT/doctor/health_check
@@ -71,6 +76,14 @@ A JSON like this will appear:
          "active_record":"Legacy::CatAnotherDatabase",
          "error_message":"Can't connect to MySQL server on '127.0.0.1' (111)"
       }
+   ],
+   "hds":[
+      {
+         "name":"uaiHd",
+         "path":"/uaiDrive",
+         "alarm_if_less_than":40,
+         "status":"ok"
+      }
    ]
 }
 ```
@@ -79,6 +92,8 @@ About the json:
 * In case of error ```"status" : "error"``` you will find the attribute ```"error_message":"error text..."``` with the error text
 * Notice that with the telnet url some default values were added. You can override them in your ```doctor.rb``` class, e.g. : ```{name: 'uaiHebert', host: 'uaihebert.com', timeout: 2}```
 
+## RoadMap
+https://github.com/estantevirtual/doctor/wiki/Road-Map
 
 ## Development
 
@@ -94,4 +109,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/estant
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-fr

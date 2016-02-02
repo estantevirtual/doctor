@@ -1,3 +1,5 @@
+require 'sys/filesystem'
+
 module Doctor
   class HdAnalyser
     def analyse
