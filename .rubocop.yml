@@ -1,0 +1,15 @@
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 99
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+
