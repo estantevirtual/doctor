@@ -11,3 +11,4 @@
 /spec/dummy/log/
 .DS_Store
 /spec/dummy/db/
+.idea
