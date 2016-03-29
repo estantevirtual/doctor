@@ -12,27 +12,36 @@ module Doctor
 
       Rails::Rack::Logger.class_eval do
         def call_with_doctor(env)
-          save_current_logs
+          logs = nil
+          begin
+            logs = backup_current_logs
 
-          define_doctor_log_if_needed(env)
+            define_doctor_log_if_needed(env)
 
-          call_without_doctor(env)
-        ensure
-          ensure_logs
+            call_without_doctor(env)
+          ensure
+            return_logs(logs) unless logs.nil?
+          end
         end
 
-        def ensure_logs
-          Rails.logger = @rails_log unless @rails_log.nil?
+        alias_method_chain :call, :doctor
 
-          ActiveRecord::Base.logger = @active_record_log unless @active_record_log.nil?
+        private
 
-          ActionController::Base.logger = @action_controller_log unless @action_controller_log.nil?
+        def return_logs(logs)
+          Rails.logger = logs.rails unless logs.rails.nil?
+
+          ActiveRecord::Base.logger = logs.active_record unless logs.active_record.nil?
+
+          ActionController::Base.logger = logs.action_controller unless logs.action_controller.nil?
         end
 
-        def save_current_logs
-          @rails_log = Rails.logger
-          @active_record_log = ActiveRecord::Base.logger
-          @action_controller_log = ActionController::Base.logger
+        def backup_current_logs
+          OpenStruct.new(
+            rails: Rails.logger,
+            active_record: ActiveRecord::Base.logger,
+            action_controller: ActionController::Base.logger
+          )
         end
 
         def define_doctor_log_if_needed(env)
@@ -44,8 +53,6 @@ module Doctor
           ActiveRecord::Base.logger = doctor_log
           ActionController::Base.logger = doctor_log
         end
-
-        alias_method_chain :call, :doctor
       end
     end
   end
