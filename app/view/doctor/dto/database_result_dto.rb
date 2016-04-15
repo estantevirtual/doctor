@@ -2,6 +2,7 @@ module Doctor
   module Dto
     class DatabaseResultDto
       attr_reader :status
+      attr_reader :error_message
 
       def initialize(data)
         @status = data[:status]

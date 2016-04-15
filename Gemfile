@@ -4,6 +4,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, :test do
-  gem 'rubocop', '0.35.1', require: false
+  gem 'rubocop', '0.39.0', require: false
   gem 'overcommit', '0.32.0'
 end

@@ -4,6 +4,9 @@ Documentation:
 Metrics/LineLength:
   Max: 99
 
+Metrics/MethodLength:
+  Max: 20
+
 AllCops:
   Exclude:
     - 'vendor/**/*'

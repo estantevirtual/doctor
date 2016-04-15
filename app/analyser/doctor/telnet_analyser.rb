@@ -17,6 +17,7 @@ module Doctor
     end
 
     private
+
     def validate_telnet_connection(url)
       result = build_result(url)
 
@@ -48,10 +49,10 @@ module Doctor
 
     def execute_telnet(url)
       Net::Telnet::new(
-        "Host" => url[:host],
-        "Port" => url[:port] || DEFAULT_PORT,
-        "Timeout" => url[:timeout] || DEFAULT_TIMEOUT,
-        "Waittime" => url[:wait_time] || DEFAULT_WAIT_TIME
+        'Host' => url[:host],
+        'Port' => url[:port] || DEFAULT_PORT,
+        'Timeout' => url[:timeout] || DEFAULT_TIMEOUT,
+        'Waittime' => url[:wait_time] || DEFAULT_WAIT_TIME
       )
     end
   end
