@@ -3,6 +3,7 @@ module Doctor
     def perform
       result = {}
 
+      result[:release_path] = analyze_release_path
       result[:telnets] = analyze_telnet
       result[:databases] = analyze_database
       result[:hds] = analyse_hds
@@ -17,6 +18,10 @@ module Doctor
     end
 
     private
+
+    def analyze_release_path
+      process(ReleasePathAnalyser, Dto::ReleasePathResultDto)
+    end
 
     def analyze_telnet
       process(TelnetAnalyser, Dto::TelnetResultDto)
@@ -54,7 +59,7 @@ module Doctor
 
     def list_all_error_messages(result)
       errors = []
-
+      p result
       result.values.each do |result_analyze|
         result_analyze.each do |result|
           next if result.status.eql?('ok')
