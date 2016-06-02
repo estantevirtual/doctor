@@ -59,7 +59,6 @@ module Doctor
 
     def list_all_error_messages(result)
       errors = []
-      p result
       result.values.each do |result_analyze|
         result_analyze.each do |result|
           next if result.status.eql?('ok')
