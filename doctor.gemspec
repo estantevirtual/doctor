@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = %w(lib app)
   spec.test_files = Dir['spec/**/*']
 
-  spec.add_dependency 'railties', '>= 3.1', '<= 5.0.2'
+  spec.add_dependency 'railties', '>= 3.1', '< 5.0'
   spec.add_dependency 'sys-filesystem', '1.1.5'
   spec.add_dependency 'codeclimate-test-reporter', '0.4.8'
   spec.add_dependency 'net-telnet', '0.1.1'
