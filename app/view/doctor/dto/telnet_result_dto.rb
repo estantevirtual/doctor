@@ -2,7 +2,6 @@ module Doctor
   module Dto
     class TelnetResultDto
       attr_reader :status
-      attr_reader :error_message
 
       def initialize(data)
         @name = data[:name]
